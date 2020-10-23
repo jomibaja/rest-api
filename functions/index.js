@@ -2,18 +2,18 @@ const functions = require('firebase-functions');
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const Pets = require('./models/pets')
 
 const mongooseConfig = { useNewUrlParser: true }
 
-const { username, password } = functions.config().mongo
+//const mongouri = functions.config().mongo.url
 
-const mongoUri = `mongodb+srv://${username}:${password}@rest-api.oxrq3.gcp.mongodb.net/rest-api?retryWrites=true&w=majority`
+const mongouri = 'mongodb+srv://jomibaja:Rosario1@rest-api.oxrq3.gcp.mongodb.net/rest-api?retryWrites=true&w=majority'
 
-mongoose.connect(mongoUri, mongooseConfig)
+mongoose.connect(mongouri, mongooseConfig)
 
 const app = express()
 
-const Pets = require('./models/Pets')
 
 const createServer = () => {
 
